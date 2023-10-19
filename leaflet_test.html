@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Web Mapping Basics By Yu-Yun</title>
+        <link rel="stylesheet" type="text/css" href="leaflet.css">
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"/>
+    </head>
+    <body>
+        <header>
+            <h1>Leaflet Test!!!!!!!!!
+            </h1>
+        </header>
+        <div id="map" style="width: 100%; height: 500px;"></div>
+        <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+        <script>
+            var map = L.map('map').setView([51.505, -0.09], 13);
+
+            var osmLayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; OpenStreetMap contributors'
+            });
+
+            var satelliteLayer = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+                attribution: 'Tiles &copy; Esri'
+            });
+
+            osmLayer.addTo(map); // Set the default layer
+
+            L.control.layers({
+                "OpenStreetMap": osmLayer,
+                "Satellite": satelliteLayer
+            }).addTo(map);
+
+            var marker = L.marker([51.5, -0.09]).addTo(map)
+                .bindPopup('A marker for our web mapping exercise.')
+                .openPopup();
+            
+            var circle = L.circle([51.508, -0.11], {
+                color: 'red',
+                fillColor: '#f03',
+                fillOpacity: 0.5,
+                radius: 500
+            }).addTo(map);
+
+             circle.bindPopup("I am a circle.");
+
+             map.on('click', function(e) {
+                 alert("Map clicked at: " + e.latlng.toString());
+            });
+
+            var geojsonData = {
+                "type": "Feature",
+                "properties": {
+                "name": "Coors Field",
+                "amenity": "Baseball Stadium",
+                "popupContent": "Home of the Colorado Rockies"
+                },
+                "geometry": {
+                "type": "Point",
+                "coordinates": [-104.99404, 39.75621]
+                }
+            };
+
+            L.geoJSON(geojsonData, {
+            pointToLayer: function(feature, latlng) {
+            return L.circleMarker(latlng, {
+            radius: 8,
+            fillColor: "#ff7800",
+            color: "#000",
+            weight: 1,
+            opacity: 1,
+            fillOpacity: 0.8
+        });
+    }
+           }).addTo(map).bindPopup(function(layer) {
+           return layer.feature.properties.popupContent;
+           }).openPopup();
+
+         L.easyButton('fa-home', function(btn, map) {
+         map.setView([51.505, -0.09], 13);
+         }).addTo(map);
+        </script>
+
+        
+    </body>
+</html>
+
+
+
+
+
+   
