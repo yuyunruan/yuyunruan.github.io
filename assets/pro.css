@@ -67,9 +67,9 @@ input, select, textarea {
 body {
   -ms-overflow-style: scrollbar; }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 800px) {
   html, body {
-    min-width: 320px; } }
+    min-width: 500px; } }
 
 html {
   box-sizing: border-box; }
@@ -94,7 +94,7 @@ body {
 
     #body-container{
       background-color:white;
-      max-width: 800px;
+      max-width: 1000px;
       margin: auto;
       border: 2px solid #f7f7f7;
       border-radius: 25px;
@@ -111,7 +111,7 @@ body, input, select, textarea {
   @media screen and (max-width: 1680px) {
     body, input, select, textarea {
       font-size: 11pt; } }
-  @media screen and (max-width: 1280px) {
+  @media screen and (max-width: 1680px) {
     body, input, select, textarea {
       font-size: 10pt; } }
   @media screen and (max-width: 360px) {
