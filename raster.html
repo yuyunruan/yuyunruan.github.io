@@ -2,10 +2,16 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<title>Raster_Project</title>
+		<title>Advanced Raster Project</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/pro.css" />
+		<style>
+			.slide-image {
+			  width: 800px;
+			  height: 600px;
+			}
+		  </style>
 	</head>
 	<body class="is-preload">
 		<div id="body-container">
@@ -20,37 +26,100 @@
 								<section>
 									<header>
 										<a href="index.html" class="button">Back</a>
-
-										</br>
-										</br>
+										<a href="assets/Poster_group2.pdf" class="button">Poster</a>
+										</br></br>
 										<h1 style="font-weight: 400; font-size: 40px;font-family: Tahoma; color: gray; " align="left">Analysis of the Relationship Between Vegetation Productivity and Pollution in Massachusetts </h1>
 									</header>
-									<p style= "font-size: 0.8em; text-align:left;"><br>Advanced Raster GIS -2023 Fall</p>
+									<p style= "font-size: 18px; text-align:left;"> Advanced Raster GIS -2023 Fall<br> Final Project <br> Abby Beilman, Naoya Morishita, Adlai Nelson, Yu-Yun Ruan </p>
+									<hr class="major" />
+									<h2 style="color:teal;">Introduction</h2>
+									<p>Climate change, driven by human activities, impacts global vegetation health and air quality. While existing research explores various factors influencing vegetation productivity and air quality, this study focuses on their intricate relationship in Massachusetts. It addresses research gaps and connects findings to broader climate studies in the region, aiming to compare trends in vegetation <strong>(Normalized difference vegetation index, NDVI)</strong> and air quality <strong>(Aerosol, AOD)</strong> over time.</p>
+									<figure>
+										<img src="image/raster_area.png" alt="Trulli" style="width: 800px; height: 600px; display: block; margin-left: auto; margin-right: auto;">
+										<figcaption style="font-size: 18px ;text-align: center;">Study Area and Sample Points</figcaption>
+									  </figure>
 
-									<p>Climate change has wide-ranging and ongoing impacts, driven by human activities. These impacts affect vegetation health directly through management decisions and indirectly through temperature fluctuations. Vegetation productivity, an essential measure of ecological well-being, is influenced by various factors, including drought, climate change, urbanization, and management practices. Air quality is another significant concern, with anthropogenic changes in air quality contributing to climate change through feedback loops. Surprisingly, air quality is projected to worsen in some regions, contrary to expectations. Aerosols, both natural and anthropogenic, add complexity by either cooling or warming the atmosphere. Understanding the relationship between aerosols and vegetative properties, such as productivity and evapotranspiration, is crucial.</p>
-									<p>This study focuses on Massachusetts, a region experiencing environmental changes, to investigate the intricate interplay between air quality and vegetation. By analyzing trends and variations in vegetation indices and aerosol levels, the research aims to shed light on their mutual impact and contribute valuable insights to climate research efforts.</p>
+
+									<p>This project processed <strong> MODIS</strong> data in <strong>Google Earth Engine</strong>. The QA-masked data were analyzed using the Mann-Kendall Tau test to identify trends without assuming data distribution. Theil-Sen Slope Analysis generated median slopes for NDVI and AOD. This research selected 10 sample point data to compare pixel-level mean values.</p>
 									<head>
 
                                     </body>
 
 									<hr class="major" />
 
-									<h2 style="color:teal;">Yearly NDVI/Aerosol</h2>
-									<iframe src="https://yuyun-first-web-map.projects.earthengine.app/view/rasterfinal" width="700" height="600"></iframe>
-									<p></p>
+									<h2 style="color:teal;">Result - Yearly NDVI/Aerosol</h2>
+									<iframe src="https://yuyun-first-web-map.projects.earthengine.app/view/rasterfinal" alt="Trulli" style="width: 800px; height: 600px; display: block; margin-left: auto; margin-right: auto;">
+									</iframe>
+									<br>
+									            <!-- Slideshow container -->
+												<div class="slideshow-container">
+													<!-- Full-width images with number and caption text -->
+													<div class="mySlides fade">
+													  <div class="numbertext">1 / 2</div>
+													  <img src="image/raster_ndvi10points.png" class="slide-image">
+													</div>
+										
+													<div class="mySlides fade">
+													  <div class="numbertext">2 / 2</div>
+													  <img src="image/raster_aod10points.png" class="slide-image">
+													</div>
+										
+													<!-- Next and previous buttons -->
+													<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+													<a class="next" onclick="plusSlides(1)">&#10095;</a>
+												  </div>
+												  <br>
+										
+												  <!-- The dots/circles -->
+												  <div style="text-align:center">
+													<span class="dot" onclick="currentSlide(1)"></span>
+													<span class="dot" onclick="currentSlide(2)"></span>
+												  </div>
+										
+											  <script>
+										  let slideIndex = 1;
+										  showSlides(slideIndex);
+										
+										  // Next/previous controls
+										  function plusSlides(n) {
+											  showSlides(slideIndex += n);
+										  }
+										
+										  // Thumbnail image controls
+										  function currentSlide(n) {
+											  showSlides(slideIndex = n);
+										  }
+										
+										  function showSlides(n) {
+											  let i;
+											  let slides = document.getElementsByClassName("mySlides");
+											  let dots = document.getElementsByClassName("dot");
+											  if (n > slides.length) {slideIndex = 1}
+											  if (n < 1) {slideIndex = slides.length}
+											  for (i = 0; i < slides.length; i++) {
+												  slides[i].style.display = "none";
+											  }
+											  for (i = 0; i < dots.length; i++) {
+												  dots[i].className = dots[i].className.replace(" active", "");
+											  }
+											  slides[slideIndex-1].style.display = "block";
+											  dots[slideIndex-1].className += " active";
+										  }
+										</script>
 									<div style="width:100%; height:100%; text-align:center">
 
 		
 									<hr class="major" />
                                     </div>
-                                    <h2 style="color:teal;">Trend Analysis</h2>
-									<p></p>
+                                    <h2 style="color:teal;">Result: Trend Analysis</h2>
+									<iframe src="https://yuyun-first-web-map.projects.earthengine.app/view/rastertrend" alt="Trulli" style="width: 800px; height: 600px; display: block; margin-left: auto; margin-right: auto;">
+									</iframe>
 									<div style="width:100%; height:100%; text-align:center">
                     
                                     <hr class="major" />
                                     </div>
                                     <h2 style="color:teal;">Conclusion</h2>
-									<p></p>
+									<p style= "font-size: 18px; text-align:left;">NDVI trends in Massachusetts show spatial variability, with predominantly negative trends, except for positive trends in the Southeast. However, pixel-level analysis reveals increasing NDVI in the Southeast. Air quality has improved statewide over 20 years, but greenness decreased, except in the Southeast. AOD values spiked in 2002 and 2010, while NDVI remained stable. Linear regression and Theil-Sen slope analyses confirmed randomness and a lack of significant trends. Future research will explore industrial dynamics, climate change impacts, and finer temporal resolutions. This study highlights the need for comprehensive analysis to understand the complex interplay between air quality and vegetation dynamics, offering insights into environmental trends.</p>
 									<div style="width:100%; height:100%; text-align:center">
 
 
