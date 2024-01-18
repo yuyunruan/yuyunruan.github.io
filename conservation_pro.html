@@ -1,0 +1,124 @@
+
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Emerging Tech in Conservation Project</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/pro.css" />
+    <style>
+      .slide-image {
+        width: 700px;
+        height: 500px;
+      }
+    </style>
+	</head>
+	<body class="is-preload">
+		<div id="body-container">
+
+		<!-- Wrapper -->
+			<!-- <div id="wrapper"> -->
+
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+							<!-- Content -->
+								<section>
+									<header>
+										<a href="index.html" class="button">Back</a>
+                                        <a href="assets/ETC_poster.pdf" class="button">Poster</a>
+										</br></br>
+										<h1 style="font-weight: 400; font-size: 40px;font-family: Tahoma; color: gray; " align="left">Applications of Conservation Technology for Assessing Broad Meadow Brook Wetlands </h1>
+									</header>
+                  
+									<p style= "font-size: 18px; text-align:left;"> Emerging Technology in Conservation -2023 Fall<br> Final Project - Biodiversity Part <br> Lara Jordan, Yu-Yun Ruan, Finnegan Wertz
+                  <hr class="major" />
+                  <h2 style="color:teal;">Introduction</h2>
+									<p style= "font-size: 20px; text-align:left;">This report highlights collaborative initiatives spearheaded by Mass Audubon and its partners to restore a wetland within Broad Meadow Brook, New England's largest urban wildlife sanctuary. The restoration project is centered on the creation of a self-sustaining native riparian and wetland ecosystem, with a focus on improving climate resilience and water quality. Key components of the project involve decommissioning an outdated sewer line and the restoration of natural stream channels. Additionally, the report emphasizes the assessment of biodiversity, wetland extent, and their interconnectedness with environmental factors.</p>
+                                    <figure>
+                                        <img src="image/etc_map.png" alt="Trulli" style="width: 400px; height: 600px; display: block; margin-left: auto; margin-right: auto;">
+                                      </figure>
+                                    
+									<p style= "font-size: 20px; text-align:left;">To determine the number of bird calls and identify the corresponding bird species over a year, we employed the BirdNET analyzer—an AI software adept at species identification through bird calls. We utilized the Birdnetlib, a Python API from BirdNet, to analyze over 8000 sound records from July 2022 to June 2023. Furthermore, our objective was to establish correlations between our species identifications and the Acoustic Diversity Index and NDVI (Normalized Difference Vegetation Index).</p>
+
+
+	<hr class="major" />
+  <h2 style="color:teal;">Result</h2>
+  <figure>
+    <img src="image/etc_call.png" alt="Trulli" style="width: 600px; height: 400px; display: block; margin-left: auto; margin-right: auto;">
+    <br>
+    <img src="image/etc_4season.png" alt="Trulli" style="width: 800px; height: 800px; display: block; margin-left: auto; margin-right: auto;">
+  </figure>
+                         <!-- Slideshow container -->
+          <br>
+          <div class="slideshow-container">
+            <!-- Full-width images with number and caption text -->
+            <div class="mySlides fade">
+              <div class="numbertext">1 / 2</div>
+              <img src="image/etc_adi.png" class="slide-image">
+            </div>
+
+            <div class="mySlides fade">
+              <div class="numbertext">2 / 2</div>
+              <img src="image/etc_ndvi.png" class="slide-image">
+            </div>
+
+            <!-- Next and previous buttons -->
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+          </div>
+          <br>
+
+          <!-- The dots/circles -->
+          <div style="text-align:center">
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+          </div>
+
+      <script>
+  let slideIndex = 1;
+  showSlides(slideIndex);
+
+  // Next/previous controls
+  function plusSlides(n) {
+      showSlides(slideIndex += n);
+  }
+
+  // Thumbnail image controls
+  function currentSlide(n) {
+      showSlides(slideIndex = n);
+  }
+
+  function showSlides(n) {
+      let i;
+      let slides = document.getElementsByClassName("mySlides");
+      let dots = document.getElementsByClassName("dot");
+      if (n > slides.length) {slideIndex = 1}
+      if (n < 1) {slideIndex = slides.length}
+      for (i = 0; i < slides.length; i++) {
+          slides[i].style.display = "none";
+      }
+      for (i = 0; i < dots.length; i++) {
+          dots[i].className = dots[i].className.replace(" active", "");
+      }
+      slides[slideIndex-1].style.display = "block";
+      dots[slideIndex-1].className += " active";
+  }
+</script>
+
+                    
+                  <hr class="major" />
+                                    <h2 style="color:teal;">Conclusion</h2>
+									<p style= "font-size: 20px; text-align:left;">Birds are either migratory or sedentary, depending on where they spend their winter. In Central Massachusetts, Black Capped-Chickadees, Blue Jays, Northern Cardinals, Morning Doves, and Crows are historically resident birds in the region. Our recorder in the woods of Broadmeadow Brook allowed us to verify if there are any new sedentary birds or if any typically sedentary birds need to be added. 
+                                    </p>
+                                    <p style= "font-size: 20px; text-align:left;">In Winter, White-Breasted Nuthatches, Tufted Titmice, Woodpeckers, and Blue Jays were the key species in Broadmeadow Brook. As temperatures warm and leaves bud in the early spring, American Robins, Eastern Phoebes, and Baltimore Orioles arrive back in the area. Migratory birds tend to travel by families and come in waves.</p>
+                                    <p style= "font-size: 20px; text-align:left;">From these recordings, we also calculated Acoustic Indices. Acoustics Indicies look at the entire range of sounds, from low rumblings of distant trucks to high-pitched bug sounds beyond human hearing. By looking at these, we can better understand Broadmeadow Brook's full range of biodiversity, including anthropogenic sounds. </p>
+									<div style="width:100%; height:100%; text-align:center">
+								</section>
+
+						</div>
+					</div>
+					</div>
+
+	</body>
+</html>
